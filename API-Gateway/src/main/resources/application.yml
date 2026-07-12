@@ -19,3 +19,9 @@ spring:
             - Path=/Product/**,/Category/**
 
 
+        - id: Order
+          uri: http://localhost:8083
+          predicates:
+            - Path=/Order/**
+
+

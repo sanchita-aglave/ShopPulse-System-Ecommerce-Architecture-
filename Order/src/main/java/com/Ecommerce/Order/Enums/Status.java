@@ -1,0 +1,24 @@
+package com.Ecommerce.Order.Enums;
+
+public enum Status {
+
+    PENDING,
+    PAYMENT_PENDING,
+    PAYMENT_COMPLETED,
+    CONFIRMED,
+    PROCESSING,
+    PACKED,
+    SHIPPED,
+    OUT_FOR_DELIVERY,
+    DELIVERED,
+    CANCELLED,
+    RETURN_REQUESTED,
+    RETURN_APPROVED,
+    RETURNED,
+    REFUND_INITIATED,
+    REFUNDED,
+    FAILED
+
+
+
+}

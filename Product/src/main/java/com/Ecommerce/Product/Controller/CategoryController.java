@@ -30,7 +30,7 @@ public class CategoryController {
         return categoryService.findAllCaegories();
     }
 
-    @PutMapping("/updaeCategory")
+    @PutMapping("/updaeCategory/{category_id}")
     public Category updateCategory(@PathVariable long category_id, @RequestBody CategoryRequest categoryRequest)
     {
         return categoryService.updateCategory(category_id,categoryRequest);
