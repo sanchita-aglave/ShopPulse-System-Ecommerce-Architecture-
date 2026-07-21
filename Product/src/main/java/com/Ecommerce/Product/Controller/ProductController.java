@@ -1,9 +1,11 @@
 package com.Ecommerce.Product.Controller;
 
 import com.Ecommerce.Product.DTO.ProductRequest;
+import com.Ecommerce.Product.DTO.ProductResponse;
 import com.Ecommerce.Product.Entity.Product;
 import com.Ecommerce.Product.Services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +21,7 @@ public class ProductController {
 
 //    @PreAuthorize("hasRole('SELLER')")
     @PostMapping("/addProduct")
-    public String addProduct(@RequestHeader("User-Id")UUID sellerId, @RequestBody ProductRequest productRequest)
+    public ProductResponse addProduct(@RequestHeader("User-Id")UUID sellerId, @RequestBody ProductRequest productRequest)
     {
         System.out.println("Inside Product Controller");
 
@@ -32,4 +34,10 @@ public class ProductController {
         return productService.showActiveProducts();
     }
 
+    @GetMapping("/getProduct/{productId}")
+     public ResponseEntity<ProductResponse> getProductById(@PathVariable Long productId)
+     {
+         ProductResponse productResponse=productService.getProductById(productId);
+         return ResponseEntity.ok(productResponse);
+     }
 }
